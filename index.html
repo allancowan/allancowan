@@ -3,29 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Allan Cowan</title>
+  <title>VE3ZZP / VA3AAC – Allan Cowan</title>
   <style>
     :root {
-      --primary: #2c5282;
-      --light: #f7fafc;
-      --dark: #1a202c;
-      --gray: #4a5568;
+      --bg: #0d1117;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --accent-dark: #388bfd;
+      --card: #161b22;
+      --border: #30363d;
+      --header: #010409;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.6;
-      color: var(--dark);
-      background: var(--light);
+      color: var(--text);
+      background: var(--bg);
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background: var(--header);
+      border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
 
@@ -39,27 +42,28 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
-      color: var(--primary);
+      color: var(--accent);
+      letter-spacing: 1px;
     }
 
     .nav-list {
       display: flex;
       list-style: none;
-      gap: 2.5rem;
+      gap: 2.2rem;
     }
 
     .nav-list a {
       text-decoration: none;
-      color: var(--gray);
+      color: var(--text);
       font-weight: 500;
       transition: color 0.2s;
     }
 
     .nav-list a:hover,
     .nav-list a.active {
-      color: var(--primary);
+      color: var(--accent);
     }
 
     .menu-toggle {
@@ -72,51 +76,94 @@
     .bar {
       width: 25px;
       height: 3px;
-      background: var(--dark);
+      background: var(--text);
       transition: all 0.3s;
     }
 
     main {
       padding-top: 90px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 5rem 2rem 2rem;
+      padding: 5rem 1.5rem 3rem;
     }
 
     section {
-      margin-bottom: 6rem;
+      margin-bottom: 5rem;
       scroll-margin-top: 100px;
     }
 
     h1, h2 {
-      color: var(--primary);
+      color: var(--accent);
       margin-bottom: 1.2rem;
     }
 
     .intro {
       text-align: center;
-      padding: 4rem 1rem 6rem;
-      background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+      padding: 6rem 1rem 8rem;
+      background: linear-gradient(to bottom, #0d1117, #161b22);
     }
 
     .intro h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       margin-bottom: 1rem;
     }
 
     .intro p {
       font-size: 1.3rem;
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto 2rem;
-      color: var(--gray);
+      color: #8b949e;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .equipment {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .equipment img {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram {
+      max-width: 700px;
+      margin: 2rem auto;
+      display: block;
     }
 
     footer {
       text-align: center;
       padding: 3rem 1rem;
-      background: var(--dark);
-      color: white;
+      background: var(--header);
+      color: #8b949e;
       font-size: 0.95rem;
+      border-top: 1px solid var(--border);
     }
 
     @media (max-width: 768px) {
@@ -125,10 +172,10 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: white;
+        background: var(--header);
         flex-direction: column;
         padding: 1.5rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--border);
         display: none;
       }
 
@@ -148,7 +195,7 @@
 
   <nav>
     <div class="nav-container">
-      <div class="logo">Allan Cowan</div>
+      <div class="logo">VE3ZZP / VA3AAC</div>
 
       <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>
@@ -158,59 +205,82 @@
 
       <ul class="nav-list" id="nav-list">
         <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#map">Map</a></li>
+        <li><a href="#licenses">Licenses</a></li>
+        <li><a href="#equipment">Equipment</a></li>
+        <li><a href="#antenna">Antenna</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#history">History</a></li>
-        <li><a href="#links">Links</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
     <section id="home" class="intro">
-      <h1>Hello, I'm Allan Cowan</h1>
-      <p>Welcome to my corner of the internet. Toronto-based. Exploring maps, history, code, and everything in between.</p>
-      <p>© 2026 Allan Cowan • allancowan.com</p>
+      <h1>Allan Cowan</h1>
+      <p>Canadian Amateur Radio Operator<br>Callsigns: <strong>VE3ZZP</strong> • <strong>VA3AAC</strong></p>
+      <p>Toronto, Ontario • HF enthusiast • Yaesu FT-710 AESS • Random wire antenna experimenter</p>
     </section>
 
-    <section id="map">
-      <h2>Map</h2>
-      <p>This is where a map, travel log, favourite places in Toronto/Ontario, or interactive geography content could go.</p>
-      <p>(You can later embed Leaflet.js, Google Maps, or just static images here.)</p>
+    <section id="licenses">
+      <h2>Amateur Radio Licenses</h2>
+      <p>Authorized by Innovation, Science and Economic Development Canada (ISED).</p>
+      
+      <div class="cards">
+        <div class="card">
+          <h3>VE3ZZP</h3>
+          <img src="ve3zzp-certificate.jpg" alt="VE3ZZP Amateur Radio Operator Certificate" />
+          <p>Basic + HF Qualification<br>Issued: [Your Issue Date]</p>
+        </div>
+        <div class="card">
+          <h3>VA3AAC</h3>
+          <img src="va3aac-certificate.jpg" alt="VA3AAC Amateur Radio Operator Certificate" />
+          <p>Basic Qualification<br>Issued: [Your Issue Date]</p>
+        </div>
+      </div>
+      
+      <p>Certificates are available upon request for verification purposes.</p>
+    </section>
+
+    <section id="equipment">
+      <h2>Equipment</h2>
+      <p>Primary transceiver: <strong>Yaesu FT-710 AESS</strong> – 100W HF/50 MHz SDR transceiver with excellent receiver performance and built-in AESS speaker system.</p>
+      
+      <div class="equipment">
+        <img src="https://static.dxengineering.com/global/images/prod/xlarge/ysu-ft-710-aess_ma_xl.jpg" 
+             alt="Yaesu FT-710 AESS HF Transceiver" 
+             width="600" />
+      </div>
+      
+      <p>Used for SSB, CW, FT8, and more on 160m–6m bands.</p>
+    </section>
+
+    <section id="antenna">
+      <h2>Antenna: 71 ft Random Wire</h2>
+      <p>End-fed random wire antenna (~71 feet / 21.6 m) with 9:1 unun and counterpoise. Good performer across multiple HF bands with external tuner.</p>
+      
+      <img src="https://your-repo-or-external/random-wire-71ft-diagram.png" 
+           alt="71 foot Random Wire Antenna Diagram" 
+           class="diagram" />
+      
+      <p>Typical configuration: ~71 ft wire sloper/inverted-L, fed with coax via 9:1 transformer, ~26–30 ft counterpoise or ground system.</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Reach out via:</p>
+      <p>Feel free to reach out:</p>
       <ul>
-        <li>Email: <a href="mailto:you@allancowan.com">you@allancowan.com</a> (replace with real email)</li>
-        <li>X/Twitter: <a href="https://x.com/allancowan95" target="_blank">@allancowan95</a></li>
+        <li>X/Twitter: <a href="https://x.com/allancowan95" target="_blank" style="color:var(--accent);">@allancowan95</a></li>
+        <li>Email: [your-email@allancowan.com]</li>
       </ul>
-      <p>Feel free to say hello!</p>
-    </section>
-
-    <section id="history">
-      <h2>History</h2>
-      <p>A bit about my background, interests in local history, family history, Toronto stories, or whatever you'd like to share.</p>
-      <p>Currently under construction — add your favourite stories here.</p>
-    </section>
-
-    <section id="links">
-      <h2>Links & Resources</h2>
-      <ul>
-        <li><a href="https://github.com/allancowan95" target="_blank">GitHub</a></li>
-        <li><a href="https://x.com/allancowan95" target="_blank">X / Twitter</a></li>
-        <li>Other interesting sites / tools / blogs you like</li>
-      </ul>
+      <p>73 de VE3ZZP / VA3AAC</p>
     </section>
   </main>
 
   <footer>
-    © 2026 Allan Cowan • Made with simplicity • Hosted on GitHub Pages
+    © 2026 Allan Cowan • Licensed Amateur Radio Operator VE3ZZP / VA3AAC • Hosted on GitHub Pages
   </footer>
 
   <script>
-    // Mobile menu toggle
+    // Mobile menu
     const menuToggle = document.getElementById('mobile-menu');
     const navList = document.getElementById('nav-list');
 
@@ -218,24 +288,21 @@
       navList.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-list a').forEach(link => {
       link.addEventListener('click', () => {
         navList.classList.remove('active');
       });
     });
 
-    // Highlight active section in nav
+    // Active nav highlight on scroll
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-list a');
 
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
+        const sectionTop = section.offsetTop - 160;
+        if (scrollY >= sectionTop) current = section.getAttribute('id');
       });
 
       navLinks.forEach(link => {
@@ -247,22 +314,4 @@
     });
   </script>
 </body>
-</html>
-</html>
-
-	
-    <h1>*     *     *     *     *     *     *</h1>
-    <!-- Links to scripts over HTTPS -->
-    <script src="script.js"></script>
-<h2>
-		We're building somthing here...
-
-	This the Home Page
-	<p>
-_______________________________________
-	</h2>
-</body>
-	<div>
-	©2024-2026 Allan Cowan (allancowan.com)
-	</div>
 </html>
