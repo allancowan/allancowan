@@ -1,29 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Allan Cowan</title>
+  <style>
+    :root {
+      --primary: #2c5282;
+      --light: #f7fafc;
+      --dark: #1a202c;
+      --gray: #4a5568;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      transition: all 0.3s;
+    }
+
+    main {
+      padding-top: 90px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 2rem 2rem;
+    }
+
+    section {
+      margin-bottom: 6rem;
+      scroll-margin-top: 100px;
+    }
+
+    h1, h2 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 4rem 1rem 6rem;
+      background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+    }
+
+    .intro h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: var(--gray);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: var(--dark);
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .nav-list.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .intro h1 { font-size: 2.8rem; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="links.html">Links</a></li>
-        </ul>
-    </nav>
 
-    <script src="script.js"></script>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Allan Cowan</div>
+
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-list" id="nav-list">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#links">Links</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="intro">
+      <h1>Hello, I'm Allan Cowan</h1>
+      <p>Welcome to my corner of the internet. Toronto-based. Exploring maps, history, code, and everything in between.</p>
+      <p>© 2026 Allan Cowan • allancowan.com</p>
+    </section>
+
+    <section id="map">
+      <h2>Map</h2>
+      <p>This is where a map, travel log, favourite places in Toronto/Ontario, or interactive geography content could go.</p>
+      <p>(You can later embed Leaflet.js, Google Maps, or just static images here.)</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Reach out via:</p>
+      <ul>
+        <li>Email: <a href="mailto:you@allancowan.com">you@allancowan.com</a> (replace with real email)</li>
+        <li>X/Twitter: <a href="https://x.com/allancowan95" target="_blank">@allancowan95</a></li>
+      </ul>
+      <p>Feel free to say hello!</p>
+    </section>
+
+    <section id="history">
+      <h2>History</h2>
+      <p>A bit about my background, interests in local history, family history, Toronto stories, or whatever you'd like to share.</p>
+      <p>Currently under construction — add your favourite stories here.</p>
+    </section>
+
+    <section id="links">
+      <h2>Links & Resources</h2>
+      <ul>
+        <li><a href="https://github.com/allancowan95" target="_blank">GitHub</a></li>
+        <li><a href="https://x.com/allancowan95" target="_blank">X / Twitter</a></li>
+        <li>Other interesting sites / tools / blogs you like</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Allan Cowan • Made with simplicity • Hosted on GitHub Pages
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('active');
+      });
+    });
+
+    // Highlight active section in nav
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-list a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
+</html>
 </html>
 
 	
@@ -39,6 +263,6 @@ _______________________________________
 	</h2>
 </body>
 	<div>
-	©2024 Allan Cowan (allancowan.com)
+	©2024-2026 Allan Cowan (allancowan.com)
 	</div>
 </html>
