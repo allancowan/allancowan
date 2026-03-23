@@ -17,6 +17,7 @@
             overflow-x: hidden;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         }
+
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 80%, #1e293b 100%);
@@ -28,39 +29,122 @@
             position: relative;
             overflow: hidden;
         }
-        /* ... rest of your existing styles ... */
 
-        /* New styles for the logo */
-        .logo-section {
-            padding: 4rem 0 5rem;
-            background: rgba(15, 23, 42, 0.6);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
+            color: #e2e8f0;
+            text-shadow: 0 6px 25px rgba(0,0,0,0.6);
+        }
+
+        .lead {
+            font-size: 1.7rem;
+            font-weight: 400;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+            color: #94a3b8;
+            opacity: 0.95;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.08;
+            pointer-events: none;
+            border-radius: 0;
+        }
+
+        .shape1 { width: 450px; height: 450px; background: #3b82f6; top: -15%; left: -10%; transform: rotate(15deg); animation: drift 28s infinite linear; }
+        .shape2 { width: 380px; height: 380px; background: #8b5cf6; bottom: -10%; right: -15%; transform: rotate(-20deg); animation: drift 34s infinite linear reverse; }
+        .shape3 { width: 600px; height: 600px; background: #ef4444; top: 35%; right: -20%; transform: rotate(10deg); animation: drift 40s infinite linear; }
+
+        @keyframes drift {
+            0%   { transform: translate(0, 0) rotate(0deg); }
+            25%  { transform: translate(120px, -80px) rotate(25deg); }
+            50%  { transform: translate(-100px, 140px) rotate(-15deg); }
+            75%  { transform: translate(80px, 60px) rotate(30deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            transition: all 0.4s;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.98) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .navbar-brand {
+            color: #e2e8f0 !important;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1 !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa !important;
+        }
+
+        footer {
+            background: linear-gradient(180deg, #0f172a, #1e293b);
+            color: #94a3b8;
+            padding: 3rem 0 2rem;
             text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
         }
-        .ve3zzp-logo {
-            max-width: 280px;           /* Adjust this size as needed */
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+
+        footer p {
+            margin: 0.4rem 0;
         }
-        .ve3zzp-logo:hover {
-            transform: scale(1.03);
+
+        footer .email {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            h1 { font-size: 4.8rem; }
+            .lead { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.8rem; }
+            .lead { font-size: 1.35rem; }
+            .shape { opacity: 0.05; }
         }
     </style>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-<div>
-    
-<!-- VE3ZZP Logo Section - Small & Centered -->
-    <section class="logo-section">
         <div class="container">
-            <img src="images/VE3ZZP_Logo.JPG" 
-                 alt="VE3ZZP Ham Radio Operator Logo" 
-                 class="ve3zzp-logo mx-auto d-block">
-        <div class="container">
-</div>
             <a class="navbar-brand" href="#">Allan Cowan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -78,20 +162,17 @@
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
         <div class="shape shape3"></div>
+
         <div class="hero-content">
             <h1>Allan Cowan</h1>
             <p class="lead">Toronto-based • Builder • Thinker</p>
         </div>
     </section>
 
-   
-        </div>
-    </section>
-
     <footer id="footer">
         <div class="container">
             <p>Toronto, Ontario • 2026</p>
-            <p class="email">ve3zzp@gmail.com</p>
+            <p class="email">allancowan@hotmail.com</p>
             <p class="small mt-3">© Allan Cowan</p>
         </div>
     </footer>
