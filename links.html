@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links | Allan Cowan</title>
     <link rel="stylesheet" href="styles.css">
+    
     <style>
-        /* Add this to your styles.css if the text is still hidden */
+        /* This CSS ensures the content clears the navbar on iPhones */
         body {
-            padding-top: 70px; /* Adjust this value based on your navbar height */
+            margin: 0;
+            padding: 0;
+        }
+
+        .content-wrapper {
+            /* Adjust 80px to be slightly taller than your navbar height */
+            padding-top: 80px; 
             text-align: center;
+        }
+
+        /* If your navbar is NOT fixed on iPad/Desktop, we reset the padding there */
+        @media (min-width: 768px) {
+            .content-wrapper {
+                padding-top: 20px; 
+            }
         }
     </style>
 </head>
@@ -30,17 +44,15 @@
         </ul>
     </nav>
 
-    <main>
+    <div class="content-wrapper">
         <h1>* * * * * * *</h1>
         <h2>This is the Links page</h2>
         <p>_______________________________________</p>
-    </main>
-
-    <footer>
+        
         <div>
             ©2025 Allan Cowan (allancowan.com)
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
