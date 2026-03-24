@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links | Allan Cowan</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     
     <style>
-        /* This CSS ensures the content clears the navbar on iPhones */
+        /* This fix pushes your content down so the navbar doesn't cover it */
         body {
             margin: 0;
             padding: 0;
+            padding-top: 100px; /* Adjust this number if the gap is too big/small */
         }
 
-        .content-wrapper {
-            /* Adjust 80px to be slightly taller than your navbar height */
-            padding-top: 80px; 
+        /* Ensure images and backgrounds from your CSS still show up */
+        .content-container {
             text-align: center;
-        }
-
-        /* If your navbar is NOT fixed on iPad/Desktop, we reset the padding there */
-        @media (min-width: 768px) {
-            .content-wrapper {
-                padding-top: 20px; 
-            }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
@@ -36,24 +32,24 @@
             <span class="bar"></span>
         </div>
         <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="links.html">Links</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./map.html">Map</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./history.html">History</a></li>
+            <li><a href="./links.html">Links</a></li>
         </ul>
     </nav>
 
-    <div class="content-wrapper">
+    <div class="content-container">
         <h1>* * * * * * *</h1>
         <h2>This is the Links page</h2>
         <p>_______________________________________</p>
         
-        <div>
+        <footer>
             ©2025 Allan Cowan (allancowan.com)
-        </div>
+        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
