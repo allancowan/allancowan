@@ -16,19 +16,11 @@
             padding: 0;
             overflow-x: hidden;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 80%, #1e293b 100%);
-            color: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+.hero {
+    min-height: 100dvh;                    /* Use dynamic viewport height */
+    padding-top: calc(env(safe-area-inset-top) + 1rem);
+    padding-bottom: env(safe-area-inset-bottom);
+}
 
         .hero::before {
             content: '';
@@ -93,45 +85,29 @@
             50%  { transform: translate(-100px, 140px) rotate(-15deg); }
             75%  { transform: translate(80px, 60px) rotate(30deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
-        }
+/* Fix for iPhone notch / Dynamic Island */
+.navbar {
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+    transition: all 0.4s;
+    
+    /* Important fixes for mobile Safari */
+    padding-top: env(safe-area-inset-top);     /* This is the key line */
+    padding-bottom: 0.5rem;
+}
 
-        .navbar {
-            background: rgba(15, 23, 42, 0.85) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
-            transition: all 0.4s;
-        }
+.navbar.scrolled {
+    background: rgba(15, 23, 42, 0.98) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
 
-        .navbar.scrolled {
-            background: rgba(15, 23, 42, 0.98) !important;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-
-        .navbar-brand {
-            color: #e2e8f0 !important;
-            font-weight: 700;
-            font-size: 1.6rem;
-        }
-
-        .nav-link {
-            color: #cbd5e1 !important;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #60a5fa !important;
-        }
-
-        footer {
-            background: linear-gradient(180deg, #0f172a, #1e293b);
-            color: #94a3b8;
-            padding: 3rem 0 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
+/* Also push the hero content down so it doesn't hide behind the navbar */
+.hero {
+    min-height: 100vh;
+    padding-top: env(safe-area-inset-top);   /* Add this */
+}
         footer p {
             margin: 0.4rem 0;
         }
