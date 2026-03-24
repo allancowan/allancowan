@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links | Allan Cowan</title>
+    <title>Links</title>
     <link rel="stylesheet" href="styles.css">
-    
     <style>
-        /* This creates a blank space at the top of the page */
-        /* so your name doesn't hide behind the navbar */
-        .iphone-fix-spacer {
-            height: 90px; /* Adjust this number if the gap is too big */
-            display: block;
-        }
-
-        /* On larger screens (iPad/Desktop), we hide the spacer */
-        @media (min-width: 768px) {
-            .iphone-fix-spacer {
-                display: none;
+        /* Force a gap at the top of the body only on mobile */
+        @media screen and (max-width: 767px) {
+            body {
+                padding-top: 120px !important; /* This pushes EVERYTHING down */
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 9999;
             }
         }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
@@ -39,19 +36,13 @@
         </ul>
     </nav>
 
-    <div class="iphone-fix-spacer"></div>
+    <h1>* * * * * * *</h1>
+    <h2>This is the Links page</h2>
+    <p>_______________________________________</p>
 
-    <main>
-        <h1>* * * * * * *</h1>
-        <h2>This is the Links page</h2>
-        <p>_______________________________________</p>
-    </main>
-
-    <footer>
-        <div>
-            ©2025 Allan Cowan (allancowan.com)
-        </div>
-    </footer>
+    <div>
+        ©2025 Allan Cowan (allancowan.com)
+    </div>
 
     <script src="script.js"></script>
 </body>
