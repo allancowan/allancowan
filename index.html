@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links | Allan Cowan</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="styles.css">
     
     <style>
-        /* This fix pushes your content down so the navbar doesn't cover it */
-        body {
-            margin: 0;
-            padding: 0;
-            padding-top: 100px; /* Adjust this number if the gap is too big/small */
+        /* This creates a blank space at the top of the page */
+        /* so your name doesn't hide behind the navbar */
+        .iphone-fix-spacer {
+            height: 90px; /* Adjust this number if the gap is too big */
+            display: block;
         }
 
-        /* Ensure images and backgrounds from your CSS still show up */
-        .content-container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* On larger screens (iPad/Desktop), we hide the spacer */
+        @media (min-width: 768px) {
+            .iphone-fix-spacer {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -32,24 +31,28 @@
             <span class="bar"></span>
         </div>
         <ul class="nav-list">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./map.html">Map</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-            <li><a href="./history.html">History</a></li>
-            <li><a href="./links.html">Links</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="links.html">Links</a></li>
         </ul>
     </nav>
 
-    <div class="content-container">
+    <div class="iphone-fix-spacer"></div>
+
+    <main>
         <h1>* * * * * * *</h1>
         <h2>This is the Links page</h2>
         <p>_______________________________________</p>
-        
-        <footer>
-            ©2025 Allan Cowan (allancowan.com)
-        </footer>
-    </div>
+    </main>
 
-    <script src="./script.js"></script>
+    <footer>
+        <div>
+            ©2025 Allan Cowan (allancowan.com)
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
